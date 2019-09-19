@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: superfly/flyctl-actions@master
         env:
-          FLY_ACCESS_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         with:
           args: "deploy"
 ```
