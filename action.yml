@@ -1,0 +1,9 @@
+name: "GitHub Action for flyctl"
+description: "Wraps the flyctl CLI tool to enable deploying and managing Fly apps"
+author: Fly
+branding:
+  icon: "upload-cloud"
+  color: "blue"
+runs:
+  using: "docker"
+  image: "Dockerfile"
