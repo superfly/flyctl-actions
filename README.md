@@ -12,6 +12,9 @@ jobs:
     name: Deploy proxy
     runs-on: ubuntu-latest
     steps:
+      # This step checks out a copy of your repository.
+      - uses: actions/checkout@v2
+      # This step runs `flyctl deploy`.
       - uses: superfly/flyctl-actions@master
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
