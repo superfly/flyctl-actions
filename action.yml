@@ -3,7 +3,7 @@ description: "Wraps the flyctl CLI tool to enable deploying and managing Fly app
 author: Fly
 branding:
   icon: "upload-cloud"
-  color: "blue"
+  color: "purple"
 runs:
   using: "docker"
   image: "Dockerfile"
