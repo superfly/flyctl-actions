@@ -2,7 +2,7 @@ FROM alpine
 
 RUN apk add --no-cache curl
 
-RUN curl https://get.fly.io/flyctl.sh | sh
+RUN curl -L https://fly.io/install.sh | FLYCTL_INSTALL=/usr/local sh
 
 COPY entrypoint.sh /entrypoint.sh
 
