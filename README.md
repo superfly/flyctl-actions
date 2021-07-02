@@ -22,7 +22,7 @@ jobs:
           args: "deploy"
 ```
 
-See the [flyctl](github.com/superfly/flyctl) GitHub project for more information on using `flyctl`.
+See the [flyctl](https://github.com/superfly/flyctl) GitHub project for more information on using `flyctl`.
 
 ## Secrets
 
