@@ -5,7 +5,19 @@ if [ -n "$FLY_PROJECT_PATH" ]; then
   # Allow user to change directories in which to run Fly commands
   cd "$FLY_PROJECT_PATH" || exit
 fi
-sh -c "flyctl $*"
+
+
+# Default to deploying with a remote builder unless local is specified explicitly
+STRATEGY="--remote-only"
+
+for i in "$*" ; do
+  if [[ $i == "--local-only" ]] ; then
+    STRATEGY="--local-only"
+    break
+  fi
+done
+
+sh -c "flyctl $* $STRATEGY"
 
 ACTUAL_EXIT="$?"
 
