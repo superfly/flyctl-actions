@@ -17,13 +17,13 @@ for i in "$*" ; do
   fi
 done
 
-if [[ $* != *"deploy"* ]] ; then
+if [[ "$*" != *"deploy"* ]] ; then
   # Strategy only relevant to deployments
   STRATEGY=""
   break
 fi
 
-sh -c "echo flyctl $* $STRATEGY"
+sh -c "flyctl $* $STRATEGY"
 
 ACTUAL_EXIT="$?"
 
