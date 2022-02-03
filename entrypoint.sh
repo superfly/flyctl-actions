@@ -11,18 +11,19 @@ fi
 STRATEGY="--remote-only"
 
 for i in "$*" ; do
-  if [[ ${i} != *"deploy"* ]] ; then
-    # Strategy only relevant to deployments
-    STRATEGY=""
-    break
-  fi
   if [[ $i == "--local-only" ]] ; then
     STRATEGY="--local-only"
     break
   fi
 done
 
-sh -c "flyctl $* $STRATEGY"
+if [[ $* != *"deploy"* ]] ; then
+  # Strategy only relevant to deployments
+  STRATEGY=""
+  break
+fi
+
+sh -c "echo flyctl $* $STRATEGY"
 
 ACTUAL_EXIT="$?"
 
