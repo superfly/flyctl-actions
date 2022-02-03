@@ -17,10 +17,9 @@ for i in "$*" ; do
   fi
 done
 
-if [[ "$*" != *"deploy"* ]] ; then
-  # Strategy only relevant to deployments
+if [[ $1 != "deploy" ]] ; then
+  # Strategy only relevant to deployments so strip if not a deploy
   STRATEGY=""
-  break
 fi
 
 sh -c "flyctl $* $STRATEGY"
