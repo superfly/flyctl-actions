@@ -11,6 +11,11 @@ fi
 STRATEGY="--remote-only"
 
 for i in "$*" ; do
+  if [[ ${i} != *"deploy"* ]] ; then
+    # Strategy only relevant to deployments
+    STRATEGY=""
+    break
+  fi
   if [[ $i == "--local-only" ]] ; then
     STRATEGY="--local-only"
     break
