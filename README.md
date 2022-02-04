@@ -4,6 +4,8 @@ This action wraps the flyctl CLI tool to allow deploying and managing fly apps.
 
 ## Usage
 
+### Deploy
+
 ```yaml
 name: Deploy to Fly
 on: [push]
@@ -14,12 +16,30 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
-      # This step runs `flyctl deploy`.
       - uses: superfly/flyctl-actions@master
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         with:
           args: "deploy"
+```
+
+
+### Run one off scripts
+
+```yaml
+name: Run on Fly
+on: [push]
+jobs:
+  deploy:
+    name: Run script
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: superfly/flyctl-actions@master
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        with:
+          args: "ssh console --command 'sh ./myscript.sh'"
 ```
 
 See the [flyctl](https://github.com/superfly/flyctl) GitHub project for more information on using `flyctl`.

@@ -17,6 +17,11 @@ for i in "$@" ; do
   fi
 done
 
+if [[ $1 != "deploy" ]] ; then
+  # Strategy only relevant to deployments so strip if not a deploy
+  STRATEGY=""
+fi
+
 sh -c "flyctl $* $STRATEGY"
 
 ACTUAL_EXIT="$?"
