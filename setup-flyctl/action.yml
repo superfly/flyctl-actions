@@ -1,0 +1,16 @@
+name: Set up flyctl
+description: Installs the flyctl CLI tool to enable deploying and managing Fly apps
+author: Fly
+branding:
+  icon: upload-cloud
+  color: purple
+runs:
+  using: node16
+  main: dist/index.js
+inputs:
+  version:
+    description: |-
+      Version of the flyctl CLI to install. If unspecified or set to "latest",
+      the latest version for the target platform will be installed. Example: "0.0.306".
+    default: latest
+    required: false
