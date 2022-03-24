@@ -16,6 +16,7 @@ async function run() {
   if (toolPath) {
     core.addPath(toolPath)
   } else {
+    core.info(`Downloading flyctl ${resolvedVersion} from ${url}...`)
     await installFlyctl(url, resolvedVersion)
   }
 
