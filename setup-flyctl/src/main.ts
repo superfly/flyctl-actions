@@ -26,10 +26,11 @@ async function resolveVersion(version: string) {
   const os = process.platform
   const arch = process.arch === 'x64' ? 'amd64' : process.arch
   const res = await client.get(`https://api.fly.io/app/flyctl_releases/${os}/${arch}/${version}`)
-  const url = await res.readBody()
-  const matches = url.match(/superfly\/flyctl\/releases\/download\/v(\d+\.\d+\.\d+)/)
+  const body = await res.readBody()
+  if (!res.message.statusCode || res.message.statusCode >= 400) throw new Error(body)
+  const matches = body.match(/superfly\/flyctl\/releases\/download\/v(\d+\.\d+\.\d+)/)
   const resolvedVersion = matches ? matches[1] : version
-  return {url, resolvedVersion}
+  return {url: body, resolvedVersion}
 }
 
 async function installFlyctl(url: string, resolvedVersion: string) {
