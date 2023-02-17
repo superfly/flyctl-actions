@@ -7,8 +7,10 @@ This action wraps the flyctl CLI tool to allow deploying and managing fly apps. 
 >   <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/light-theme/tip.svg">
 >   <img alt="Tip" src="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/dark-theme/tip.svg">
 > </picture><br>
-> For production deployments, we recommend [pinning to a specific version](#pin-to-a-specific-fly-version) of flyctl to avoid changes in `flyctl` behavior affecting your deployment.
+>
+> For production deployments, we recommend [pinning to a specific version][pinning] of flyctl to avoid changes in `flyctl` behavior affecting your deployment.
 
+[pinning]: #pin-to-a-specific-fly-version
 
 ```yaml
 name: Deploy to Fly
