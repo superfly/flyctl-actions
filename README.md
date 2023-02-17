@@ -8,7 +8,7 @@ This action wraps the flyctl CLI tool to allow deploying and managing fly apps. 
 >   <img alt="Tip" src="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/dark-theme/tip.svg">
 > </picture><br>
 >
-> For production deployments, we recommend [pinning to a specific version][pinning] of flyctl to avoid changes in `flyctl` behavior affecting your deployment.
+> For production deployments, [pin flyctl to a specific version][pinning] to avoid unexpected behavior in edge releases of `flyctl`.
 
 [pinning]: #pin-to-a-specific-fly-version
 
@@ -33,7 +33,7 @@ jobs:
 ```yaml
 - uses: superfly/flyctl-actions/setup-flyctl@master
   with:
-    version: 0.0.308
+    version: 0.0.462
 ```
 ### Running one-off scripts
 
