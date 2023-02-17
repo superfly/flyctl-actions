@@ -1,7 +1,14 @@
 # GitHub Actions for flyctl
 
 This action wraps the flyctl CLI tool to allow deploying and managing fly apps. We recommend using the `setup-flyctl` action which runs outside of Docker for speed and flexibility.
-## Usage for deployment
+## Usage for Deployment
+
+> <picture>
+>   <source media="(prefers-color-scheme: light)" srcset="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/light-theme/tip.svg">
+>   <img alt="Tip" src="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/dark-theme/tip.svg">
+> </picture><br>
+> For production deployments, we recommend [pinning to a specific version](#pin-to-a-specific-fly-version) of flyctl to avoid changes in `flyctl` behavior affecting your deployment.
+
 
 ```yaml
 name: Deploy to Fly
@@ -19,14 +26,14 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 ```
 
-To use a specific version of `flyctl`:
+### Pin to a specific version of `flyctl`:
 
 ```yaml
 - uses: superfly/flyctl-actions/setup-flyctl@master
   with:
     version: 0.0.308
 ```
-### Run one-off scripts
+### Running one-off scripts
 
 ```yaml
 name: Run on Fly
