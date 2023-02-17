@@ -1,6 +1,6 @@
-# GitHub Actions for flyctl
+# Automate Fly.io app deployment
 
-This action wraps the flyctl CLI tool to allow deploying and managing fly apps. We recommend using the `setup-flyctl` action which runs outside of Docker for speed and flexibility.
+This action wraps the [Fly.io CLI](https://github.com/superfly/flyctl). Use it to deploy or manage your Fly.io application via [Github Actions events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
 ## Usage for Deployment
 
 > <picture>
@@ -8,9 +8,9 @@ This action wraps the flyctl CLI tool to allow deploying and managing fly apps. 
 >   <img alt="Tip" src="https://github.com/Mqxx/GitHub-Markdown/blob/main/blockquotes/badge/dark-theme/tip.svg">
 > </picture><br>
 >
-> For production deployments, [pin flyctl to a specific version][pinning] to avoid unexpected behavior in edge releases of `flyctl`.
+> For production deployments, [pin flyctl to a specific version][pinning] to avoid unexpected behavior in edge releases.
 
-[pinning]: #pin-to-a-specific-fly-version
+[pinning]: #pin-to-a-specific-version-of-flyctl
 
 ```yaml
 name: Deploy to Fly
