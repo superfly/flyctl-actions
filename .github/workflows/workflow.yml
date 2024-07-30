@@ -1,0 +1,30 @@
+name: Test Builds and Setup
+
+on:
+  - push
+  - pull_request
+
+permissions: read-all
+
+jobs:
+  test-multi-platform-builds:
+    name: Test multi-platform builds
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v4
+
+      - name: Set-up flyctl
+        uses: ./setup-flyctl
+
+      - run: flyctl version
