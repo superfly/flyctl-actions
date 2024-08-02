@@ -7,8 +7,49 @@ on:
 permissions: read-all
 
 jobs:
+  hygiene:
+    name: Hygiene
+
+    strategy:
+      fail-fast: false
+      matrix:
+        action:
+          - setup-flyctl
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.action }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tree
+        uses: actions/checkout@v4
+
+      - name: Set-up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - run: corepack enable
+
+      - run: pnpm install --frozen-lockfile
+
+      - if: always()
+        run: pnpm lint
+
+      - if: always()
+        run: pnpm typecheck
+
+      - name: Ensure dist directory is up-to-date
+        if: always()
+        run: pnpm build && git diff --exit-code --ignore-cr-at-eol
+
   test-multi-platform-builds:
     name: Test multi-platform builds
+
+    needs:
+      - hygiene
 
     strategy:
       fail-fast: false

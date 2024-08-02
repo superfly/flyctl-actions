@@ -1,0 +1,7 @@
+# Default behaviour, for if core.autocrlf isn't set
+* text=auto
+
+# the linguist-vendored/linguist-generated attribute suppresses changes being
+# displayed by default in pull requests.
+/setup-flyctl/dist/*.js -diff linguist-generated
+/setup-flyctl/dist/*.txt -diff linguist-generated
