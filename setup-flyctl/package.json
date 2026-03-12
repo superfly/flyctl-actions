@@ -7,9 +7,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@actions/core": "1.11.1",
-    "@actions/http-client": "2.2.3",
-    "@actions/tool-cache": "2.0.2"
+    "@actions/core": "2.0.3",
+    "@actions/http-client": "3.0.2",
+    "@actions/tool-cache": "3.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.6",
