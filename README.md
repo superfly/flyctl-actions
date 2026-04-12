@@ -56,7 +56,7 @@ See the [flyctl](https://github.com/superfly/flyctl) GitHub project for more inf
 
 ## Secrets
 
-`FLY_API_TOKEN` - **Required**. The token to use for authentication. You can find a token by running `flyctl auth token` or going to your [user settings on fly.io](https://fly.io/user/personal_access_tokens).
+`FLY_API_TOKEN` - **Required**. The token to use for authentication. You can find a token by running `flyctl tokens create` or going to your [user settings on fly.io](https://fly.io/user/personal_access_tokens).
 
 ## Using the `setup-flyctl` action
 
